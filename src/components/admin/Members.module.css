@@ -1,0 +1,25 @@
+.table td,
+.table th {
+  text-align: left;
+  padding: 10px 15px 5px 15px;
+  font-weight: 300;
+}
+.status {
+  width: 18px;
+  height: 18px;
+}
+.bold,
+.table th {
+  color: var(--primary-color);
+  font-weight: 400;
+}
+.table th {
+  font-weight: 500;
+  padding: 10px 15px;
+  /* border-bottom: 1px solid #777777; */
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

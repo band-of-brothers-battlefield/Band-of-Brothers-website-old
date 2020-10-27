@@ -1,0 +1,157 @@
+.container {
+  box-sizing: border-box;
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  padding: 20px 0;
+  background: var(--color-3);
+  z-index: 100;
+}
+.inner {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  align-items: flex-end;
+}
+.inner h1 {
+  align-self: center;
+  font-weight: 800;
+}
+.links {
+  display: flex;
+  flex-direction: row;
+  height: 23px;
+  flex-grow: 2;
+  padding-left: 50px;
+  align-self: center;
+}
+.links > *,
+.menuList > * {
+  margin: 0 5px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  align-self: center;
+  border-radius: 5px;
+  user-select: none;
+}
+.links > *:hover,
+.login:hover {
+  background: var(--color-2);
+}
+.login {
+  height: 23px;
+  border-radius: 5px;
+  padding: 10px 15px;
+  align-self: center;
+  cursor: pointer;
+}
+.login > a,
+.links > a,
+.menuList > *,
+.menu,
+.menuHead {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  color: var(--primary-color);
+}
+.login * {
+  font-size: 14px;
+  font-weight: 500;
+  align-self: center;
+}
+.smallimg {
+  width: 25px;
+  height: 25px;
+  margin-right: 15px;
+  border-radius: 25px;
+  align-self: center;
+  z-index: 2;
+}
+.gray {
+  color: var(--text-color);
+  font-weight: 500;
+}
+.stretch {
+  width: 50px;
+  height: 13px;
+}
+.imageBack {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: 0;
+  border-radius: 50%;
+  background: var(--color-2);
+}
+.restrictedIcon,
+.arrow {
+  height: 14px;
+  width: 14px;
+  align-self: center;
+  margin-left: 7px;
+  color: var(--text-color);
+}
+.arrow {
+  height: 18px;
+  width: 18px;
+}
+.menuList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  flex-grow: 2;
+  background: var(--color-2);
+  border-radius: 5px;
+}
+.opened,
+.closed {
+  align-self: flex-start;
+  margin-top: -9px;
+  padding: 0;
+  flex-direction: column;
+  background: var(--color-2);
+}
+.menuList > * {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  border-top: 1px solid var(--color-1);
+  background: transparent;
+  color: var(--text-color);
+}
+.menuHead,
+.menuList > * {
+  padding: 11px 20px;
+}
+.menuList > *:hover {
+  color: var(--primary-color);
+}
+.closed .menuList {
+  display: none;
+}
+.closed {
+  background: transparent;
+}
+@media only screen and (max-width: 920px) {
+  .gray,
+  .discordName {
+    display: none;
+  }
+  .smallimg {
+    margin: 0;
+  }
+  .login {
+    padding: 0;
+  }
+  .login:hover {
+    background: transparent;
+  }
+}

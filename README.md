@@ -1,2 +1,2 @@
-# Band-of-Brothers-website-fork
+# BoB-website
 Created with CodeSandbox

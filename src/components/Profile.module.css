@@ -1,0 +1,87 @@
+.container {
+  position: relative;
+}
+.discord {
+  display: flex;
+  flex-direction: row;
+}
+.gray {
+  color: var(--text-color);
+}
+.logout {
+  display: inline-block;
+  color: var(--red-color);
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.credits {
+  margin-left: 40px;
+}
+.image {
+  height: 144px;
+  width: 144px;
+  border-radius: 72px;
+}
+.role,
+.platoon {
+  font-size: 14px;
+  margin-left: 20px;
+  padding: 4px 17px;
+  align-self: center;
+}
+.bob,
+.origin {
+  margin-top: 40px;
+  position: relative;
+}
+.bob > span,
+.origin > span {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+.input {
+  padding: 5px 15px;
+  margin-left: -15px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  width: 200px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--color-3);
+  color: var(--primary-color);
+  font-family: "Montserrat", sans-serif;
+}
+.originname {
+  font-weight: 500;
+  padding: 5px 15px;
+  margin-left: -15px;
+  cursor: pointer;
+  color: var(--text-color);
+}
+.originname:hover {
+  color: var(--primary-color);
+  background-color: var(--color-2);
+  border-radius: 5px;
+}
+.discordname {
+  color: var(--text-color);
+  font-weight: 500;
+}
+.description {
+  font-size: 14px;
+  max-width: 500px;
+}
+.description > a {
+  font-size: 14px;
+  text-decoration: underline;
+}
+.stretched {
+  width: 100px;
+  height: 23px;
+  display: block;
+  border-radius: 20px;
+}

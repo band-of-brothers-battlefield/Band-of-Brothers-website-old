@@ -1,0 +1,25 @@
+.avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+.table td,
+.table th {
+  text-align: left;
+  padding: 5px 15px;
+}
+
+.button {
+  width: min-content;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  align-self: center;
+  user-select: none;
+  background: var(--color-2);
+  white-space: nowrap;
+}
+
+.button:hover {
+  background: var(--color-3);
+}

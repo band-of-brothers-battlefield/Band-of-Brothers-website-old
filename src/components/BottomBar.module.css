@@ -1,0 +1,12 @@
+.container {
+  box-sizing: border-box;
+  position: relative;
+  top: 120px;
+  width: 100%;
+  padding: 20px 0;
+  background: var(--color-3);
+}
+.container p {
+  font-size: 14px;
+  text-align: center;
+}
