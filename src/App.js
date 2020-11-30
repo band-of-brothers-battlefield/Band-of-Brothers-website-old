@@ -12,7 +12,7 @@ import StatusCheck from "./components/StatusCheck.js";
 export default function App(props) {
   return (
     <React.Fragment>
-      <BandApi.Provider value={APIv(Version.Dev)}>
+      <BandApi.Provider value={APIv(Version.Prod)}>
         <TopBar />
         <div className="page-container">{props.children}</div>
         <StatusCheck />
