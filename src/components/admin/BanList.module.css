@@ -11,6 +11,8 @@
 
 .button {
   width: min-content;
+  display: flex;
+  align-items: center;
   font-size: 14px;
   font-weight: 500;
   padding: 10px 20px;
@@ -18,8 +20,37 @@
   user-select: none;
   background: var(--color-2);
   white-space: nowrap;
+  border-radius: 5px;
 }
 
-.button:hover {
+.button:hover, .search input:hover, .search input:focus  {
   background: var(--color-3);
+}
+
+.icon {
+  margin: 0;
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.search input {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  align-self: center;
+  background: var(--color-2);
+  white-space: nowrap;
+  border: none;
+  height: 20px;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  color: var(--text-color);
+  margin-left: 20px;
 }

@@ -7,7 +7,7 @@ import adaptive from "../Adaptive.module.css";
 
 function BanRow(props) {
   return (
-    <tr>
+    <tr style={{display: !props.user.display ? "" : "none"}}>
       <td>
         <img src={props.user.avatar} alt="" className={styles.avatar} />
       </td>
@@ -22,6 +22,11 @@ export default class BanList extends React.Component {
   constructor(props) {
     super(props);
     this.state = { ready: false, list: [] };
+    this.onSearch = this.onSearch.bind(this);
+  }
+  onSearch(e) {
+    let val = e.target.value;
+    this.setState(s => ({ ...s, list: { ...s.list, players: s.list.players.map(p => ({...p, display: !p.displayName.toLowerCase().includes(val.toLowerCase()) })) } }) );
   }
   async updateUser(u) {
     let api = this.context;
@@ -37,10 +42,19 @@ export default class BanList extends React.Component {
       if (this.state.user.auth.is_admin) {
         return (
           <div className={adaptive.adaptive}>
-            <a href="https://bandofbrothers.site/api/infoexcel?type=bannedList">
-              <div className={styles.button}>Download Banlist</div>
-            </a>
-            <br />
+            <h2>Ban list</h2>
+            <p>List of banned players on every server.<br /> {this.state.list.players.length} players are banned so far.</p>
+            <div className={styles.header}>
+              <a href="https://bandofbrothers.site/api/infoexcel?type=bannedList">
+                <div className={styles.button}>
+                  <svg className={styles.icon} viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />
+                  </svg>
+                  Download Banlist
+                </div>
+              </a>
+              <SearchBan callback={this.onSearch} />
+            </div>
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -62,5 +76,15 @@ export default class BanList extends React.Component {
       }
     }
     return <div className={adaptive.adaptive}>Updating...</div>;
+  }
+}
+
+class SearchBan extends React.Component {
+  render() {
+    return (
+      <div className={styles.search}>
+        <input type="text" placeholder="Type to search" onChange={this.props.callback} />
+      </div>
+    );
   }
 }

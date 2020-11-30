@@ -1,4 +1,6 @@
 import React from "react";
+import { Person } from "schema-dts";
+import { JsonLd } from "react-schemaorg";
 
 // Components
 import Cover from "./ImageCover.js";
@@ -36,7 +38,7 @@ export default function Home(props) {
             hacker-free servers, and more fun for all of you.
           </p>
         </div>
-        <div className={home.paragraph}>
+        <div className={home.paragraph} style={{"display": "none"}}>
           <h2>Join community</h2>
           <p>
             Want to join our Band? Just make sure to join our new discord

@@ -10,7 +10,7 @@ import loading from "./Loading.module.css";
 
 function Title() {
   return (
-    <Link to="/" title="Main page">
+    <Link to="/" title="Band of Brothers">
       <h1>Band of Brothers</h1>
     </Link>
   );
@@ -192,7 +192,7 @@ class UserBage extends React.Component {
             <span
               onClick={this.login}
               className={bar.loginButton}
-              title="Sign in"
+              title="Log in"
             >
               Log in
             </span>
@@ -216,8 +216,8 @@ export default function TopBar() {
       <div className={classNames(bar.inner, adaptive.adaptive)}>
         <Title />
         <div className={bar.links}>
-          <PageLink to="/donations/" text="Donations" />
-          <a href="https://discord.gg/V46eKGF" title="Join our Discord">
+          <PageLink to="/donations/" text="Donations" v={103} />
+          <a href="https://discord.bandofbrothers.site/" title="Join our Discord">
             Discord
           </a>
           <LinkMenu text="Battlefield" v={103}>

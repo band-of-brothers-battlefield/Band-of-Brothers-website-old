@@ -1,5 +1,6 @@
 import React from "react";
 import { BandApi } from "../../api";
+import classNames from "classnames";
 
 import styles from "./Members.module.css";
 import adaptive from "../Adaptive.module.css";
@@ -30,12 +31,33 @@ function Status(props) {
   );
 }
 
-function UserRow(props) {
-  // let inPlatoon = props.user.origin.is_in_platoon;
-  // let platoon = inPlatoon ? props.user.origin.platoon : "-";
-  // let { id, name } =
-  //  props.user.origin.name === "" ? { id: "-", name: "-" } : props.user.origin;
+function Arrow(props) {
+  return (
+    <svg viewBox="0 0 24 24" className={classNames({[styles.arrow]: true, [styles.rotated]: props.r, [styles.hidden]: !props.h})}>
+       <path fill="currentColor" d="M7,10L12,15L17,10H7Z" />
+    </svg>
+  )
+}
 
+function ComponentStatus(props) {
+  return (<span className={styles.statusCode}>{props.t}</span>);
+}
+
+function FakeMemberRow(props) {
+  return (
+    <tr>
+      <td className={styles.bold}></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td className={styles.bold}></td>
+      <td></td>
+    </tr>
+  );
+}
+
+
+function UserRow(props) {
   let platoons = props.user.platoons.map((platoon, i) => {
     let j = platoon.number;
     return j;
@@ -74,104 +96,119 @@ class MembersList extends React.Component {
   static contextType = BandApi;
   constructor(props) {
     super(props);
-    this.state = { ready: false, list: [], page: 1, user: null };
-    this.pageBack = this.pageBack.bind(this);
-    this.pageForv = this.pageForv.bind(this);
-    this.setPagestate = this.setPagestate.bind(this);
+    this.state = { code: 0, list: [], sort: "displayName", reverseSort: false, user: null, status: "Updating..." };
     this.updateUser = this.updateUser.bind(this);
+    this.updateList = this.updateList.bind(this);
   }
   async updateUser(user) {
     let api = this.context;
-    let list = user.auth.is_admin
-      ? await api.getListOfMembers(this.state.page)
-      : [];
     this.setState((state) => ({
+      ...state,
       user: user,
-      ready: true,
-      list: list,
-      page: state.page
+      code: 2,
     }));
   }
-  async updateList(page) {
+  updateList(sort) {
+    if (this.state.code < 5) return;
+    var reverse = this.state.reverseSort;
+    if (sort == this.state.sort) {
+      reverse = !reverse;
+    }
+    this.setState(s => ({ ...s, sort: sort, reverseSort: reverse, status: "Updating list..", code: 4}));
+  }
+  async getList() {
     let api = this.context;
-    if (this.state.ready) {
-      if (this.state.user.auth.is_admin) {
-        api
-          .getListOfMembers(page)
-          .then((list) => this.setPagestate(page, list));
-      }
-    }
+    api
+      .getListOfMembers(this.state.sort, this.state.reverseSort)
+      .then((list) => this.setState(s => (
+        { ...s, list: list, code: 5, status: "" }
+      )));
   }
-  pageBack() {
-    if (this.state.ready) {
-      if (this.state.page > 1) {
-        let new_page = this.state.page - 1;
-        this.updateList(new_page);
-      }
-    }
+  clickableRow(name, title) {
+    return (
+      <th className={styles.clickable} onClick={()=>this.updateList(name)}>
+        <div className={styles.row}>
+          <span>{title}</span>
+          <Arrow h={(this.state.sort == name)} r={this.state.reverseSort} />
+        </div>
+      </th>
+    );
   }
-  setPagestate(page, list) {
-    if (list !== null) {
+  componentDidMount() {
+    let api = this.context;
+    // Component just loaded
+    if (this.state.code === 0) {
       this.setState((state) => ({
-        user: state.user,
-        ready: true,
-        list: list,
-        page: page
+        ...state,
+        status: "Fetching user data",
+        code: 1
       }));
     }
   }
-  pageForv() {
-    if (this.state.ready) {
-      if (this.state.page < this.state.list.num_of_pages) {
-        let new_page = this.state.page + 1;
-        this.updateList(new_page);
+  componentDidUpdate() {
+    let api = this.context;
+    // Load User
+    if (this.state.code === 1) {
+      api.user.then((u) => this.updateUser(u));
+    }
+    // User loaded
+    if (this.state.code === 2) {
+      // If not an admin
+      if (!this.state.user.auth.is_admin) {
+        this.setState((state) => ({
+          ...state,
+          status: "Not an Admin!",
+          code: 3
+        }));
+      } else {
+        this.setState(s => ({ ...s, status: "Updating list..", code: 4 }));
       }
+    }
+    // Load list
+    if (this.state.code === 4) {
+      this.getList();
     }
   }
   render() {
+    // Get API
     let api = this.context;
-    if (!this.state.ready && this.state.user == null) {
-      api.user.then((u) => this.updateUser(u));
+    // Redirect
+    if (this.state.code === 3) {
+      window.location = "/";
     }
-    if (this.state.ready) {
-      if (this.state.user.auth.is_admin) {
-        return (
-          <div className={adaptive.adaptive}>
-            <div className={styles.header}>
-              <Paginator
-                goBack={this.pageBack}
-                goForv={this.pageForv}
-                page={this.state.page}
-                max={this.state.list.num_of_pages}
-              />
-              <h2>Page {this.state.page}</h2>
-            </div>
-            <table className={styles.table}>
-              <thead className={styles.thead}>
-                <tr>
-                  <th>Origin</th>
-                  <th />
-                  <th>Platoon</th>
-                  <th>Game admin</th>
-                  <th>Discord</th>
-                  <th>Role</th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.list.members.map((p, j) => (
-                  <UserRow user={p} key={j} />
-                ))}
-              </tbody>
-            </table>
-          </div>
-        );
-      } else {
-        window.location = "/";
-      }
-    } else {
-      return <div className={adaptive.adaptive}>Updating...</div>;
-    }
+    // Loaded state
+    let loaded = this.state.code > 4;
+    // Fake list of members
+    let fakeList = [<FakeMemberRow />];
+    // List of members (or fake one)
+    let list = loaded ? this.state.list.members.map((p, j) => (
+      <UserRow user={p} key={j} />
+    )) : fakeList;
+    // Render component
+    return (
+      <div className={adaptive.adaptive}>
+        <div className={styles.header}>
+          <h2>Member list</h2>
+          <ComponentStatus t={this.state.status} />
+        </div>
+        <table className={styles.table}>
+          <thead className={styles.thead}>
+            <tr>
+              {this.clickableRow("displayName", "Origin")}
+              <th />
+              {this.clickableRow("firstPlatoon", "Platoon")}
+              {this.clickableRow("isGameAdmin", "Game admin")}
+              {this.clickableRow("inDiscord", "Discord")}
+              <th>Role</th>
+            </tr>
+          </thead>
+          <tbody>{list}</tbody>
+        </table>
+      </div>
+    );
   }
+
+
 }
 
 export default function Members(props) {

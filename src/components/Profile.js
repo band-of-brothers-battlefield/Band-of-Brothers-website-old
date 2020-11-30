@@ -23,8 +23,7 @@ class Logout extends React.Component {
   static contextType = BandApi;
   logout = this.logout.bind(this);
   logout() {
-    let api = this.context;
-    api.logout();
+    window.location = "//bandofbrothers.site/api/logout/"
   }
   render() {
     return (
@@ -83,7 +82,7 @@ class ProfileComponent extends React.Component {
         <div className={profile.bob}>
           <h2>Band of Brothers</h2>
           <p className={profile.description}>
-            Join <a href="https://discord.gg/V46eKGF">Discord</a> to get all the
+            Join <a href="https://discord.bandofbrothers.site/" title="Discord">Discord</a> to get all the
             info about our clan.
           </p>
           <DiscordStatus ready={this.state.ready} user={this.state.user} />

@@ -10,16 +10,54 @@
 }
 .bold,
 .table th {
-  color: var(--primary-color);
+  color: var( --primary-color);
   font-weight: 400;
 }
 .table th {
   font-weight: 500;
   padding: 10px 15px;
-  /* border-bottom: 1px solid #777777; */
+
 }
+.table .row span {
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .header {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+.header.status {
+
+}
+.statusCode {
+  align-self: center;
+  margin-left: 10px;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 12px;
+}
+.clickable {
+  cursor: pointer;
+}
+.clickable:hover {
+  color: var(--text-color);
+}
+
+.arrow {
+  width: 18px;
+  height: 18px;
+}
+.arrow.hidden {
+  display: none;
+}
+.arrow.rotated {
+  transform: rotateX(180deg);
 }
