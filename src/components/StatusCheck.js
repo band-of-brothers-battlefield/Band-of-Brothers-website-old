@@ -1,5 +1,5 @@
 import React from "react";
-import { BandApi } from "../api";
+import { BandApi } from "lib/api";
 
 import styles from "./StatusCheck.module.css";
 

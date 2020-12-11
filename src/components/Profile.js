@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import { BandApi } from "../api";
+import { BandApi } from "lib/api";
 // Components
 
 // Styles
