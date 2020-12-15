@@ -2,8 +2,6 @@ import * as React from 'react';
 import { Method } from "./types";
 import JsonClient from "./JsonApi";
 
-
-
 export enum Version {
   Prod = 1102,
   Dev = 2102,
@@ -28,7 +26,7 @@ class ApiProvider extends JsonClient {
     return this.getJsonMethod(Method.platoon, { sort: sort, reverse: reverse });
   }
   updateNickname(name: string) {
-    return this.postJsonMethod(Method.setinfo, { "origin-name": name });
+    return this.getJsonMethod(Method.setinfo, { "origin-name": name });
   }
 }
 
