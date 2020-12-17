@@ -74,12 +74,14 @@
   "devDependencies": {
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "tsuml2": "^0.2.0",
     "typescript": "^3.8.3"
   },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "uml": "tsuml2 --glob ./src/**/*.ts --outFile ./UML.svg --modifiers false --propertyTypes false"
   },
   "browserslist": [
     ">0.2%",
