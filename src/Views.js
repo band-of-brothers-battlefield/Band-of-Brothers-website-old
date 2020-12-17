@@ -2,13 +2,13 @@ import React from "react";
 import { Route } from "react-router-dom";
 
 // Pages
-import Home from "./components/Home.js";
-import Profile from "./components/Profile.js";
-import Members from "./components/admin/Members.js";
-import BanList from "./components/admin/BanList.js";
-import Servers from "./components/battlefield/Servers.js";
-import BotPage from "./components/battlefield/BattlefieldBot.js";
-import Donations from "./components/Donations.js";
+import Home from "./components/Home";
+import Profile from "./components/Profile";
+import Members from "./components/admin/Members";
+import BanList from "./components/admin/BanList";
+import Servers from "./components/battlefield/Servers";
+import BotPage from "./components/battlefield/BattlefieldBot";
+import Donations from "./components/Donations";
 
 
 export default function Pages() {

@@ -1,7 +1,6 @@
 /**
  * Json API library. Copyright Band of Brothers & Community Network, 2020
  * Developers: discord.gg/kxUeTeT
- * Developers: discord.gg/kxUeTeT
  * Band of Brothers: discord.gg/FDJjESK
  */
 
@@ -20,6 +19,12 @@ export default class JsonClient {
         // Set offline before user loads
         this.is_online = false;
         // Load user into promise
+        this.user = this.getUserInfo();
+    }
+    /**
+     * Fetch and update local User component
+     * */
+    updateUserObject() {
         this.user = this.getUserInfo();
     }
     /**
@@ -71,8 +76,10 @@ export default class JsonClient {
     payload_to_response(payload: any): Response {
         var type = Result.Ok;
         if ("error" in payload) {
-            type = Result.Err;
-            payload = payload.error;
+            return {
+                error: payload.error,
+                type: Result.Err
+            }
         }
         return {
             payload: payload,
@@ -91,6 +98,7 @@ export default class JsonClient {
                 'Content-Type': 'application/json'
             }
         };
+        console.log(options);
         let post_promise = this.postMethod(input_method, options);
         return post_promise.then(result => {
             return result.json().then(
@@ -111,7 +119,7 @@ export default class JsonClient {
             );
         }, error => this.error_msg_to_response(error));
     }
-    async getUserInfo() {
+    async getUserInfo(): Promise<User> {
         let response = await this.getJsonMethod(Method.getinfo);
         if (response.type == Result.Ok) {
             this.is_online = true;

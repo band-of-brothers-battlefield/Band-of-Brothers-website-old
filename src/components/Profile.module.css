@@ -85,3 +85,10 @@
   display: block;
   border-radius: 20px;
 }
+
+.originUpdateStatus {
+    font-size: 12px;
+    padding: 10px 0px;
+    margin-bottom: 10px;
+    display: inline-block !important;
+}

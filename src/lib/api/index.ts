@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Method } from "./types";
+import { Method, Response } from "./types";
 import JsonClient from "./JsonApi";
 
 export enum Version {
@@ -10,24 +10,30 @@ export enum Version {
 
 class ApiProvider extends JsonClient {
 
-  version: Version;
+    version: Version;
 
-  constructor(v: Version) {
-    super();
-    this.version = v;
-  }
-  logout() {
-    return this.fetchMethod(Method.logout);
-  }
-  getBanList() {
-    return this.getJsonMethod(Method.infolist, { type: "bannedList" });
-  }
-  getListOfMembers(sort: string, reverse: boolean) {
-    return this.getJsonMethod(Method.platoon, { sort: sort, reverse: reverse });
-  }
-  updateNickname(name: string) {
-    return this.getJsonMethod(Method.setinfo, { "origin-name": name });
-  }
+    constructor(v: Version) {
+        super();
+        this.version = v;
+    }
+    getBanList(): Promise<Response> {
+        return this.getJsonMethod(
+            Method.infolist,
+            { type: "bannedList" }
+        );
+    }
+    getListOfMembers(sort: string, reverse: boolean): Promise<Response> {
+        return this.getJsonMethod(
+            Method.platoon,
+            { sort: sort, reverse: reverse }
+        );
+    }
+    updateNickname(name: string): Promise<Response> {
+        return this.getJsonMethod(
+            Method.setinfo,
+            { "origin-name": name }
+        );
+    }
 }
 
 export function APIv(version: Version) {
