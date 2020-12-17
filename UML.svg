@@ -1,0 +1,107 @@
+<svg version="1.1" baseProfile="full" width="1613" height="432" viewbox="0 0 1613 432" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" style="font-weight:bold; font-size:12pt; font-family:'Calibri', Helvetica, sans-serif;;stroke-width:3;stroke-linejoin:round;stroke-linecap:round">
+<title >nomnoml</title>
+<desc >#.interface: fill=lightblue
+#.enumeration: fill=lightgreen
+[ApiProvider|version|getBanList();getListOfMembers();updateNickname()]
+[&lt;enumeration&gt;Version|Prod;Dev;Beta]
+[default]&lt;:-[ApiProvider]
+[default|is_online;user|updateUserObject();constructApiUrl();fetchMethod();postMethod();error_msg_to_response();payload_to_response();postJsonMethod();getJsonMethod();getUserInfo();openLoginPage()]
+[&lt;interface&gt;UserAuthState|is_admin;is_signed_in|]
+[&lt;interface&gt;UserBoBServer|nickname;role;role_color;in_server|]
+[&lt;interface&gt;UserDiscordAcc|avatar;discriminator;name|]
+[&lt;interface&gt;UserOriginAcc|id;is_in_platoon;name;platoon|]
+[&lt;interface&gt;User|auth;bob;discord;origin|]
+[&lt;interface&gt;Response|type;error;payload|]
+[&lt;enumeration&gt;Method|getinfo;login;logout;infolist;platoon;setinfo]
+[&lt;enumeration&gt;Result|Err;Ok]</desc>
+<path d="M131 256.5 L131 276.5 L131 296.5 L131 296.5 " style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<path d="M136.3 269.8 L131 269.8 L125.7 269.8 L131 256.5 Z" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></path>
+<rect x="35.5" y="296.5" height="123" width="192" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+<a id=".ApiProvider" xlink:href=""><text x="131.5" y="318" style="fill: #33322E;text-anchor: middle;">ApiProvider</text></a>
+<path d="M35.5 327.5 L227.5 327.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="43.5" y="349" style="fill: #33322E;font-weight:normal;">version</text>
+<path d="M35.5 358.5 L227.5 358.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="43.5" y="380" style="fill: #33322E;font-weight:normal;">getBanList()</text>
+<text x="43.5" y="395" style="fill: #33322E;font-weight:normal;">getListOfMembers()</text>
+<text x="43.5" y="410" style="fill: #33322E;font-weight:normal;">updateNickname()</text>
+<rect x="13.5" y="13.5" height="243" width="235" style="stroke:#33322E;fill:#eee8d5;stroke-dasharray:none;"></rect>
+<a id="src/lib/api/JsonApi.ts.default" xlink:href="src/lib/api/JsonApi.ts"><text x="131" y="35" style="fill: #33322E;text-anchor: middle;">default</text></a>
+<path d="M13.5 44.5 L248.5 44.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="21.5" y="66" style="fill: #33322E;font-weight:normal;">is_online</text>
+<text x="21.5" y="81" style="fill: #33322E;font-weight:normal;">user</text>
+<path d="M13.5 90.5 L248.5 90.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="21.5" y="112" style="fill: #33322E;font-weight:normal;">updateUserObject()</text>
+<text x="21.5" y="127" style="fill: #33322E;font-weight:normal;">constructApiUrl()</text>
+<text x="21.5" y="142" style="fill: #33322E;font-weight:normal;">fetchMethod()</text>
+<text x="21.5" y="157" style="fill: #33322E;font-weight:normal;">postMethod()</text>
+<text x="21.5" y="172" style="fill: #33322E;font-weight:normal;">error_msg_to_response()</text>
+<text x="21.5" y="187" style="fill: #33322E;font-weight:normal;">payload_to_response()</text>
+<text x="21.5" y="202" style="fill: #33322E;font-weight:normal;">postJsonMethod()</text>
+<text x="21.5" y="217" style="fill: #33322E;font-weight:normal;">getJsonMethod()</text>
+<text x="21.5" y="232" style="fill: #33322E;font-weight:normal;">getUserInfo()</text>
+<text x="21.5" y="247" style="fill: #33322E;font-weight:normal;">openLoginPage()</text>
+<rect x="288.5" y="92.5" height="85" width="140" style="stroke:#33322E;fill:lightblue;stroke-dasharray:none;"></rect>
+<a id="src/lib/api/types.ts.UserAuthState" xlink:href="src/lib/api/types.ts"><text x="358.5" y="114" style="fill: #33322E;font-weight:normal;text-anchor: middle;">UserAuthState</text></a>
+<path d="M288.5 123.5 L428.5 123.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="296.5" y="145" style="fill: #33322E;font-weight:normal;">is_admin</text>
+<text x="296.5" y="160" style="fill: #33322E;font-weight:normal;">is_signed_in</text>
+<path d="M288.5 169.5 L428.5 169.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="468.5" y="77.5" height="115" width="140" style="stroke:#33322E;fill:lightblue;stroke-dasharray:none;"></rect>
+<a id="src/lib/api/types.ts.UserBoBServer" xlink:href="src/lib/api/types.ts"><text x="538.5" y="99" style="fill: #33322E;font-weight:normal;text-anchor: middle;">UserBoBServer</text></a>
+<path d="M468.5 108.5 L608.5 108.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="476.5" y="130" style="fill: #33322E;font-weight:normal;">nickname</text>
+<text x="476.5" y="145" style="fill: #33322E;font-weight:normal;">role</text>
+<text x="476.5" y="160" style="fill: #33322E;font-weight:normal;">role_color</text>
+<text x="476.5" y="175" style="fill: #33322E;font-weight:normal;">in_server</text>
+<path d="M468.5 184.5 L608.5 184.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="648.5" y="85.5" height="100" width="149" style="stroke:#33322E;fill:lightblue;stroke-dasharray:none;"></rect>
+<a id="src/lib/api/types.ts.UserDiscordAcc" xlink:href="src/lib/api/types.ts"><text x="723" y="107" style="fill: #33322E;font-weight:normal;text-anchor: middle;">UserDiscordAcc</text></a>
+<path d="M648.5 116.5 L797.5 116.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="656.5" y="138" style="fill: #33322E;font-weight:normal;">avatar</text>
+<text x="656.5" y="153" style="fill: #33322E;font-weight:normal;">discriminator</text>
+<text x="656.5" y="168" style="fill: #33322E;font-weight:normal;">name</text>
+<path d="M648.5 177.5 L797.5 177.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="837.5" y="77.5" height="115" width="140" style="stroke:#33322E;fill:lightblue;stroke-dasharray:none;"></rect>
+<a id="src/lib/api/types.ts.UserOriginAcc" xlink:href="src/lib/api/types.ts"><text x="907.5" y="99" style="fill: #33322E;font-weight:normal;text-anchor: middle;">UserOriginAcc</text></a>
+<path d="M837.5 108.5 L977.5 108.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="845.5" y="130" style="fill: #33322E;font-weight:normal;">id</text>
+<text x="845.5" y="145" style="fill: #33322E;font-weight:normal;">is_in_platoon</text>
+<text x="845.5" y="160" style="fill: #33322E;font-weight:normal;">name</text>
+<text x="845.5" y="175" style="fill: #33322E;font-weight:normal;">platoon</text>
+<path d="M837.5 184.5 L977.5 184.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="1017.5" y="77.5" height="115" width="83" style="stroke:#33322E;fill:lightblue;stroke-dasharray:none;"></rect>
+<a id="src/lib/api/types.ts.User" xlink:href="src/lib/api/types.ts"><text x="1059" y="99" style="fill: #33322E;font-weight:normal;text-anchor: middle;">User</text></a>
+<path d="M1017.5 108.5 L1100.5 108.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="1025.5" y="130" style="fill: #33322E;font-weight:normal;">auth</text>
+<text x="1025.5" y="145" style="fill: #33322E;font-weight:normal;">bob</text>
+<text x="1025.5" y="160" style="fill: #33322E;font-weight:normal;">discord</text>
+<text x="1025.5" y="175" style="fill: #33322E;font-weight:normal;">origin</text>
+<path d="M1017.5 184.5 L1100.5 184.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="1140.5" y="85.5" height="100" width="92" style="stroke:#33322E;fill:lightblue;stroke-dasharray:none;"></rect>
+<a id="src/lib/api/types.ts.Response" xlink:href="src/lib/api/types.ts"><text x="1186.5" y="107" style="fill: #33322E;font-weight:normal;text-anchor: middle;">Response</text></a>
+<path d="M1140.5 116.5 L1232.5 116.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="1148.5" y="138" style="fill: #33322E;font-weight:normal;">type</text>
+<text x="1148.5" y="153" style="fill: #33322E;font-weight:normal;">error</text>
+<text x="1148.5" y="168" style="fill: #33322E;font-weight:normal;">payload</text>
+<path d="M1140.5 177.5 L1232.5 177.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<rect x="1272.5" y="89.5" height="92" width="83" style="stroke:#33322E;fill:lightgreen;stroke-dasharray:none;"></rect>
+<a id="src/lib/api/index.ts.Version" xlink:href="src/lib/api/index.ts"><text x="1314" y="111" style="fill: #33322E;font-weight:normal;text-anchor: middle;">Version</text></a>
+<path d="M1272.5 120.5 L1355.5 120.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="1280.5" y="142" style="fill: #33322E;font-weight:normal;">Prod</text>
+<text x="1280.5" y="157" style="fill: #33322E;font-weight:normal;">Dev</text>
+<text x="1280.5" y="172" style="fill: #33322E;font-weight:normal;">Beta</text>
+<rect x="1395.5" y="66.5" height="137" width="92" style="stroke:#33322E;fill:lightgreen;stroke-dasharray:none;"></rect>
+<a id="src/lib/api/types.ts.Method" xlink:href="src/lib/api/types.ts"><text x="1441.5" y="88" style="fill: #33322E;font-weight:normal;text-anchor: middle;">Method</text></a>
+<path d="M1395.5 97.5 L1487.5 97.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="1403.5" y="119" style="fill: #33322E;font-weight:normal;">getinfo</text>
+<text x="1403.5" y="134" style="fill: #33322E;font-weight:normal;">login</text>
+<text x="1403.5" y="149" style="fill: #33322E;font-weight:normal;">logout</text>
+<text x="1403.5" y="164" style="fill: #33322E;font-weight:normal;">infolist</text>
+<text x="1403.5" y="179" style="fill: #33322E;font-weight:normal;">platoon</text>
+<text x="1403.5" y="194" style="fill: #33322E;font-weight:normal;">setinfo</text>
+<rect x="1527.5" y="96.5" height="77" width="73" style="stroke:#33322E;fill:lightgreen;stroke-dasharray:none;"></rect>
+<a id="src/lib/api/types.ts.Result" xlink:href="src/lib/api/types.ts"><text x="1564" y="118" style="fill: #33322E;font-weight:normal;text-anchor: middle;">Result</text></a>
+<path d="M1527.5 127.5 L1600.5 127.5" style="stroke:#33322E;fill:none;stroke-dasharray:none;"></path>
+<text x="1535.5" y="149" style="fill: #33322E;font-weight:normal;">Err</text>
+<text x="1535.5" y="164" style="fill: #33322E;font-weight:normal;">Ok</text>
+</svg>
